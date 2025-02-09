@@ -2,6 +2,7 @@ import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
   const { url } = await req.json()
+  console.log('url:', url)
 
   // TODO: Implement actual YouTube video info retrieval logic here
   // This is a mock implementation
