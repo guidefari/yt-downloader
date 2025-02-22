@@ -17,7 +17,6 @@ export async function POST(req: Request) {
 	}
 
 	try {
-		console.log("videoId try catch:", videoId);
 		const info = await ytdl.getInfo(url);
     // return NextResponse.json(info)
 
@@ -25,7 +24,6 @@ export async function POST(req: Request) {
 		// const formats = [...info.player_response.streamingData.formats, ...info.player_response.streamingData.adaptiveFormats]
 		// const audioFormats = filterAudioFormats(formats)
 
-		console.log("audioFormats:", audioFormats);
 		// ytdl.getInfo("http://www.youtube.com/watch?v=aqz-KE-bpKQ").then(info => {
 		// })
 		// return NextResponse.json({...info.player_response.streamingData.formats, ...info.player_response.streamingData.adaptiveFormats})
