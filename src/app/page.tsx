@@ -80,10 +80,10 @@ export default function Home() {
 		<>
 			<div className="w-full max-w-xl mx-auto p-6 flex flex-col justify-between min-h-screen">
 				<div>
-					<h2 className="text-4xl sm:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-linear-to-br from-gray-200 to-gray-600">
+					<h2 className="text-4xl sm:text-5xl font-extrabold mb-4 bg-clip-text ">
 						YouTube Video Downloader{" "}
 					</h2>
-					<p className="text-lg sm:text-xl mb-8 text-gray-300">
+					<p className="text-lg sm:text-xl mb-8 ">
 						(for research purposes👀)
 					</p>
 				</div>
@@ -97,8 +97,9 @@ export default function Home() {
 								value={url}
 								onChange={(e) => setUrl(e.target.value)}
 								required
+								className="placeholder:text-black rounded-none"
 							/>
-							<Button type="submit" disabled={status === "loading"}>
+							<Button type="submit" disabled={status === "loading"} className="rounded-none">
 								{status === "loading" ? (
 									<>
 										<Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -133,6 +134,7 @@ export default function Home() {
 									>
 										<Button
 											variant="outline"
+											className="rounded-none"
 											size="sm"
 											onClick={() => handleDownload(format.url)}
 										>

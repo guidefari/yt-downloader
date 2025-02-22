@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
+import { Space_Mono } from "next/font/google";
 import "./globals.css";
+
+const mono = Space_Mono({
+	subsets: ["latin"],
+	weight: ["400", "700"],
+	style: ["normal", "italic"],
+});
 
 export const metadata: Metadata = {
 	title: "ytdl@home",
@@ -25,7 +32,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" className={mono.className}>
 			<body className="min-h-dvh p-1 flex">{children}</body>
 		</html>
 	);
