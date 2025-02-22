@@ -7,16 +7,16 @@ export const metadata: Metadata = {
 	icons: {
 		icon: "/favicon.svg",
 	},
-  openGraph: {
-    images: [
-      {
-        url: '/api/og', // Path to your OG image API route
-        width: 1200,
-        height: 630,
-        alt: 'There\'s youtube downloader at home',
-      },
-    ],
-  },
+	openGraph: {
+		images: [
+			{
+				url: "/api/og", // Path to your OG image API route
+				width: 1200,
+				height: 630,
+				alt: "There's youtube downloader at home",
+			},
+		],
+	},
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className="min-h-100dvh">{children}</body>
+			<body className="min-h-dvh p-1 flex">{children}</body>
 		</html>
 	);
 }
