@@ -80,7 +80,7 @@ export default function Home() {
 		<>
 			<div className="w-full max-w-xl mx-auto p-6 flex flex-col justify-between min-h-screen">
 				<div>
-					<h2 className="text-4xl sm:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-br from-gray-200 to-gray-600">
+					<h2 className="text-4xl sm:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-linear-to-br from-gray-200 to-gray-600">
 						YouTube Video Downloader{" "}
 					</h2>
 					<p className="text-lg sm:text-xl mb-8 text-gray-300">

@@ -62,12 +62,13 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/streamsaver": "^2.0.5",
     "postcss": "^8",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.0.0",
     "typescript": "^5"
   }
 }
