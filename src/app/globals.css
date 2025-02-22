@@ -66,12 +66,6 @@
   text-wrap: balance;
 }
 
-@layer utilities {
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-}
-
 @layer base {
   :root {
     color-scheme: light dark;

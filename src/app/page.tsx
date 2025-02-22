@@ -63,17 +63,33 @@ export default function Home() {
 	};
 
 	async function handleDownload(url: string) {
-		const res = await fetch(
-			"https://pqaqeg2yyn3fyw2kbrs4s6e2ii0trnro.lambda-url.us-east-1.on.aws/",
-			{
-				method: "POST",
-				body: JSON.stringify({
-					title: deets?.title,
-					url,
-					email: "guideg6@gmail.com",
-				}),
-			},
-		);
+		try {
+			const res = await fetch(
+				"https://pqaqeg2yyn3fyw2kbrs4s6e2ii0trnro.lambda-url.us-east-1.on.aws/",
+				{
+					method: "POST",
+					body: JSON.stringify({
+						title: deets?.title,
+						url,
+						email: "guideg6@gmail.com",
+					}),
+				},
+			);
+	
+			if (!res.ok) {
+				throw new Error(`HTTP error! status: ${res.status}`);
+			}
+	
+			console.log("Download request successful:", res);
+			toast.success("Download started!", {
+				description: "Check your email for the mp3",
+			});
+		} catch (error) {
+			console.error("Download failed:", error);
+			toast.error("Download failed", {
+				description: error instanceof Error ? error.message : "An unknown error occurred",
+			});
+		}
 	}
 
 	return (
@@ -83,9 +99,7 @@ export default function Home() {
 					<h2 className="text-4xl sm:text-5xl font-extrabold mb-4 bg-clip-text ">
 						YouTube Video Downloader{" "}
 					</h2>
-					<p className="text-lg sm:text-xl mb-8 ">
-						(for research purposes👀)
-					</p>
+					<p className="text-lg sm:text-xl mb-8 ">(for research purposes👀)</p>
 				</div>
 
 				<div className="flex-1 items-center justify-center">
@@ -99,7 +113,11 @@ export default function Home() {
 								required
 								className="placeholder:text-black rounded-none"
 							/>
-							<Button type="submit" disabled={status === "loading"} className="rounded-none">
+							<Button
+								type="submit"
+								disabled={status === "loading"}
+								className="rounded-none"
+							>
 								{status === "loading" ? (
 									<>
 										<Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -151,7 +169,13 @@ export default function Home() {
 					)}
 				</div>
 			</div>
-			<Toaster />
+			<Toaster
+				toastOptions={{
+					style: {
+						borderRadius: 0,
+					},
+				}}
+			/>
 		</>
 	);
 }
